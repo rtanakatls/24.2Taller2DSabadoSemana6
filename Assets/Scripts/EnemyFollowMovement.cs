@@ -8,6 +8,7 @@ public class EnemyFollowMovement : MonoBehaviour
     private Rigidbody2D rb2d;
     private Transform target;
     [SerializeField] private float minFollowDistance;
+    [SerializeField] private float maxFollowDistance;
 
     private void Awake()
     {
@@ -28,7 +29,11 @@ public class EnemyFollowMovement : MonoBehaviour
     {
         if (target != null)
         {
-            if (Vector2.Distance(transform.position, target.position) <= minFollowDistance)
+            if (Vector2.Distance(transform.position, target.position) >= maxFollowDistance)
+            {
+                rb2d.velocity = Vector2.zero;
+            }
+            else if (Vector2.Distance(transform.position, target.position) <= minFollowDistance)
             {
                 rb2d.velocity = Vector2.zero;
             }
@@ -44,5 +49,7 @@ public class EnemyFollowMovement : MonoBehaviour
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, minFollowDistance);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, maxFollowDistance);
     }
 }
