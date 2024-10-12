@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private LifeController lifeController;
+    private PlayerLifeController lifeController;
     private FeedbackController feedbackController;
 
     private void Awake()
     {
-        lifeController = GetComponent<LifeController>();
+        lifeController = GetComponent<PlayerLifeController>();
         feedbackController = GetComponent<FeedbackController>();
     }
 
