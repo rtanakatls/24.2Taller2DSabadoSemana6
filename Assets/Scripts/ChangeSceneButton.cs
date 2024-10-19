@@ -15,6 +15,6 @@ public class ChangeSceneButton : MonoBehaviour
 
     private void ChangeScene()
     {
-        LoadingSceen.Instance.ShowLoadScreen(sceneName);
+        CinematicChangeScene.Instance.ChangeScene(sceneName);
     }
 }
